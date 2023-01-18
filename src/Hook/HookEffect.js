@@ -37,7 +37,7 @@ const HookEffect = () => {
         }
 
     },[name]);
-    //useEffect는 여러개일 수 있습니다.
+    //useEffect는 여러개일 수 있습니다.*
 
     return (
         <>

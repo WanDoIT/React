@@ -1,48 +1,42 @@
-import { useState } from "react";
-import IterationComponentQ2 from "./component/IteraterComponentQ2";
-import HookEffect from "./Hook/HookEffect";
-import HookQ from "./Hook/HookQ";
-import HookQ2 from "./Hook/HookQ2";
-import HookRef from "./Hook/HookRef";
+import { Fragment } from "react"
+import './css/App.css' //css파일 경로 링크
+
+//css모듈 파일링크
+import styled from './css/App.module.css'
 
 const App = () => {
-    /* 
-    p.223
-    1.필수 훅
-    useState()
-    컴포넌트에서 상태값을 제어하는 가장 기본이 되는 hook
+    //p.261 - css스타일링
+    // 직접스타일링하기 :  -은 카멜표기법으로 변경됩니다
+    const myStyle = {
+        color : "red",
+        textAlign : "center"
 
-    useEffect()
-    컴포넌트의 라이프사이클(생명주기)를 다룹니다.
-    mount, mount이후,state변경될때, unmount이전에 특정 작업을 수행할 수 있습니다.
-    */
-    const [visible,setVisible] = useState(true);
-
-    const handleClick = () =>{
-        setVisible(!visible)
     }
 
+    return (
+        <Fragment>
+            <header style={{backgroundColor:"black"}} className="app_header">
+                <p  style={myStyle}>헤더입니다(직접스타일링)</p>
 
-    return(
-        <>
-        {/* effect훅 */}
-        <button onClick={handleClick}>{visible ? "숨기기" : "보이기"}</button> <br/>
+            </header>
+            <article className="app_article">
+                css파일로 디자인하기
+            </article>
+            <section className={styled.app_wrap}>
+                <div className={styled.app_item}>
+                    <p>css디자인</p>
+                    <input type="text" className="input_control"/>
+                    <input type="password" className="input_control" />
+                </div>
 
-        {visible ? <HookEffect/> : null }
-        
-        {/* ref훅 */}
-        <hr/>
-        <HookRef/>
-        {/* 훅 실습 */}
-        <hr/>
-        <HookQ/>
+            </section>
 
-        <hr/>
-        <HookQ2/>
-        </>
+        </Fragment>
+
+
     )
 
-
 }
+
 
 export default App;
